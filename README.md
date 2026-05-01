@@ -2,7 +2,7 @@
 
 > Dark pastel themes for Visual Studio Code — named after Leo the dachshund.
 
-Leo is a curated collection of **14 rich dark pastel themes** with deep UI hierarchy, Catppuccin-inspired token palettes, and carefully balanced syntax color variety. Every theme comes in a standard **Dark** variant and an OLED-friendly **Dark Deep** variant.
+Leo is a curated collection of **14 rich dark pastel themes** with a shared palette backbone, a softer UI hierarchy, and consistent syntax-role mapping across every flavor. Every theme comes in a standard **Dark** variant and an OLED-friendly **Dark Deep** variant.
 
 ---
 
@@ -24,10 +24,10 @@ Each theme ships as **Dark** (standard) and **Dark Deep** (OLED/deeper canvas).
 
 ## Design Philosophy
 
-- **Rich syntax palettes** — 6+ distinct semantic colors per theme
-- **3-tier UI accents** — cursor/badges, activity bar, scrollbar each have purposeful depth
-- **Proper tab hierarchy** — active tab stands out with a distinct background and accent top border
-- **Catppuccin typography** — functions, types, enums, and parameters are italic; keywords are clean
+- **Shared palette backbone** — every theme uses the same surface ramp, inactive chrome rules, and active accent hierarchy
+- **Softer passive UI** — selections, tabs, panels, and inputs lean on neutral surfaces so accents stay purposeful
+- **Consistent syntax roles** — strings, callables, types, constants, and parameters keep the same job across every flavor
+- **Semantic token coverage** — modern language servers inherit the same hierarchy as TextMate scopes
 - **Dark Deep variants** — ~40% darker canvas for OLED screens or deep-focus sessions
 
 ---

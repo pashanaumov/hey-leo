@@ -25,77 +25,81 @@
     "oled theme",
     "vscode ui theme"
   ],
+  "scripts": {
+    "generate": "node scripts/generate-themes.mjs",
+    "package:profile": "node scripts/package-profile-extension.mjs"
+  },
   "contributes": {
     "themes": [
       {
         "label": "Leo Velvet Dark",
         "uiTheme": "vs-dark",
-        "path": "./themes/BlushDrift-dark-color-theme.json"
+        "path": "./themes/LeoVelvet-dark-color-theme.json"
       },
       {
         "label": "Leo Velvet Dark Deep",
         "uiTheme": "vs-dark",
-        "path": "./themes/BlushDrift-dark-deep-color-theme.json"
+        "path": "./themes/LeoVelvet-dark-deep-color-theme.json"
       },
       {
         "label": "Leo Dew Dark",
         "uiTheme": "vs-dark",
-        "path": "./themes/LilacFrost-dark-color-theme.json"
+        "path": "./themes/LeoDew-dark-color-theme.json"
       },
       {
         "label": "Leo Dew Dark Deep",
         "uiTheme": "vs-dark",
-        "path": "./themes/LilacFrost-dark-deep-color-theme.json"
+        "path": "./themes/LeoDew-dark-deep-color-theme.json"
       },
       {
         "label": "Leo Petal Dark",
         "uiTheme": "vs-dark",
-        "path": "./themes/Roseveil-dark-color-theme.json"
+        "path": "./themes/LeoPetal-dark-color-theme.json"
       },
       {
         "label": "Leo Petal Dark Deep",
         "uiTheme": "vs-dark",
-        "path": "./themes/Roseveil-dark-deep-color-theme.json"
+        "path": "./themes/LeoPetal-dark-deep-color-theme.json"
       },
       {
         "label": "Leo Burrow Dark",
         "uiTheme": "vs-dark",
-        "path": "./themes/PetalMocha-dark-color-theme.json"
+        "path": "./themes/LeoBurrow-dark-color-theme.json"
       },
       {
         "label": "Leo Burrow Dark Deep",
         "uiTheme": "vs-dark",
-        "path": "./themes/PetalMocha-dark-deep-color-theme.json"
+        "path": "./themes/LeoBurrow-dark-deep-color-theme.json"
       },
       {
         "label": "Leo Morning Dark",
         "uiTheme": "vs-dark",
-        "path": "./themes/LinenMist-dark-color-theme.json"
+        "path": "./themes/LeoMorning-dark-color-theme.json"
       },
       {
         "label": "Leo Morning Dark Deep",
         "uiTheme": "vs-dark",
-        "path": "./themes/LinenMist-dark-deep-color-theme.json"
+        "path": "./themes/LeoMorning-dark-deep-color-theme.json"
       },
       {
         "label": "Leo Biscuit Dark",
         "uiTheme": "vs-dark",
-        "path": "./themes/GelatoPastello-dark-color-theme.json"
+        "path": "./themes/LeoBiscuit-dark-color-theme.json"
       },
       {
         "label": "Leo Biscuit Dark Deep",
         "uiTheme": "vs-dark",
-        "path": "./themes/GelatoPastello-dark-deep-color-theme.json"
+        "path": "./themes/LeoBiscuit-dark-deep-color-theme.json"
       },
       {
         "label": "Leo Dusk Dark",
         "uiTheme": "vs-dark",
-        "path": "./themes/CloudberryBloom-dark-color-theme.json"
+        "path": "./themes/LeoDusk-dark-color-theme.json"
       },
       {
         "label": "Leo Dusk Dark Deep",
         "uiTheme": "vs-dark",
-        "path": "./themes/CloudberryBloom-dark-deep-color-theme.json"
+        "path": "./themes/LeoDusk-dark-deep-color-theme.json"
       }
     ]
   },
