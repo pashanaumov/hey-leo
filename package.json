@@ -1,9 +1,9 @@
 {
   "name": "leo-themes",
-  "displayName": "Leo",
+  "displayName": "Hey Leo",
   "description": "Dark pastel themes for Visual Studio Code, named after Leo the dachshund. Rich syntax color palettes with balanced UI chrome.",
   "publisher": "pashanaumov",
-  "version": "1.0.11",
+  "version": "1.0.0",
   "icon": "icons/icon.png",
   "engines": {
     "vscode": "^1.87.0"
