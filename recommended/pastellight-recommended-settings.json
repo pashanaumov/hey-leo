@@ -1,0 +1,20 @@
+{
+    "workbench.colorTheme": "Roseveil",
+    "workbench.iconTheme": "helium-icon-theme",
+    "workbench.secondarySideBar.defaultVisibility": "hidden",
+    "window.titleBarStyle": "custom",
+    "window.autoDetectHighContrast": false,
+    "editor.fontFamily": "'JetBrains Mono', 'Victor Mono', 'Fira Code', 'Droid Sans Mono', monospace",
+    "editor.fontLigatures": true,
+    "editor.fontWeight": "600",
+    "editor.fontSize": 16,
+    "editor.lineHeight": 22,
+    "editor.letterSpacing": 0.5,
+    "editor.tabSize": 4,
+    "editor.insertSpaces": true,
+    "editor.smoothScrolling": true,
+    "editor.formatOnSave": true,
+    "editor.minimap.enabled": false,
+    "debug.disassemblyView.showSourceCode": false,
+    "terminal.integrated.fontWeight": "600"
+}

@@ -1,0 +1,110 @@
+{
+  "name": "leo-themes",
+  "displayName": "Leo",
+  "description": "Dark pastel themes for Visual Studio Code, named after Leo the dachshund. Rich syntax color palettes with balanced UI chrome.",
+  "publisher": "pashanaumov",
+  "version": "1.0.11",
+  "icon": "icons/icon.png",
+  "engines": {
+    "vscode": "^1.87.0"
+  },
+  "categories": [
+    "Themes"
+  ],
+  "keywords": [
+    "dark theme",
+    "pastel theme",
+    "pastel dark",
+    "catppuccin inspired",
+    "dachshund",
+    "soft syntax highlighting",
+    "elegant dark theme",
+    "developer aesthetic",
+    "pretty themes",
+    "deep dark",
+    "oled theme",
+    "vscode ui theme"
+  ],
+  "contributes": {
+    "themes": [
+      {
+        "label": "Leo Velvet Dark",
+        "uiTheme": "vs-dark",
+        "path": "./themes/BlushDrift-dark-color-theme.json"
+      },
+      {
+        "label": "Leo Velvet Dark Deep",
+        "uiTheme": "vs-dark",
+        "path": "./themes/BlushDrift-dark-deep-color-theme.json"
+      },
+      {
+        "label": "Leo Dew Dark",
+        "uiTheme": "vs-dark",
+        "path": "./themes/LilacFrost-dark-color-theme.json"
+      },
+      {
+        "label": "Leo Dew Dark Deep",
+        "uiTheme": "vs-dark",
+        "path": "./themes/LilacFrost-dark-deep-color-theme.json"
+      },
+      {
+        "label": "Leo Petal Dark",
+        "uiTheme": "vs-dark",
+        "path": "./themes/Roseveil-dark-color-theme.json"
+      },
+      {
+        "label": "Leo Petal Dark Deep",
+        "uiTheme": "vs-dark",
+        "path": "./themes/Roseveil-dark-deep-color-theme.json"
+      },
+      {
+        "label": "Leo Burrow Dark",
+        "uiTheme": "vs-dark",
+        "path": "./themes/PetalMocha-dark-color-theme.json"
+      },
+      {
+        "label": "Leo Burrow Dark Deep",
+        "uiTheme": "vs-dark",
+        "path": "./themes/PetalMocha-dark-deep-color-theme.json"
+      },
+      {
+        "label": "Leo Morning Dark",
+        "uiTheme": "vs-dark",
+        "path": "./themes/LinenMist-dark-color-theme.json"
+      },
+      {
+        "label": "Leo Morning Dark Deep",
+        "uiTheme": "vs-dark",
+        "path": "./themes/LinenMist-dark-deep-color-theme.json"
+      },
+      {
+        "label": "Leo Biscuit Dark",
+        "uiTheme": "vs-dark",
+        "path": "./themes/GelatoPastello-dark-color-theme.json"
+      },
+      {
+        "label": "Leo Biscuit Dark Deep",
+        "uiTheme": "vs-dark",
+        "path": "./themes/GelatoPastello-dark-deep-color-theme.json"
+      },
+      {
+        "label": "Leo Dusk Dark",
+        "uiTheme": "vs-dark",
+        "path": "./themes/CloudberryBloom-dark-color-theme.json"
+      },
+      {
+        "label": "Leo Dusk Dark Deep",
+        "uiTheme": "vs-dark",
+        "path": "./themes/CloudberryBloom-dark-deep-color-theme.json"
+      }
+    ]
+  },
+  "galleryBanner": {
+    "color": "#1A1828",
+    "theme": "dark"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/pashanaumov/leo-themes"
+  }
+}
