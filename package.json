@@ -1,10 +1,11 @@
 {
   "name": "leo-themes",
   "displayName": "Hey Leo",
-  "description": "Dark pastel themes for Visual Studio Code, named after Leo the dachshund. Rich syntax color palettes with balanced UI chrome.",
+  "description": "Curated pastel themes for Visual Studio Code: Leo Dew, Leo Morning, and Leo Velvet in Dark, Dark Deep, and Light variants.",
   "publisher": "pashanaumov",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "icon": "icons/icon.png",
+  "license": "MIT",
   "engines": {
     "vscode": "^1.87.0"
   },
@@ -12,9 +13,12 @@
     "Themes"
   ],
   "keywords": [
+    "vscode theme",
     "dark theme",
+    "light theme",
     "pastel theme",
     "pastel dark",
+    "pastel light",
     "catppuccin inspired",
     "dachshund",
     "soft syntax highlighting",
@@ -27,6 +31,8 @@
   ],
   "scripts": {
     "generate": "node scripts/generate-themes.mjs",
+    "package": "npm run generate && npx @vscode/vsce package",
+    "package:check": "npm run generate && npx @vscode/vsce ls",
     "package:profile": "node scripts/package-profile-extension.mjs"
   },
   "contributes": {
@@ -42,6 +48,11 @@
         "path": "./themes/LeoVelvet-dark-deep-color-theme.json"
       },
       {
+        "label": "Leo Velvet Light",
+        "uiTheme": "vs",
+        "path": "./themes/LeoVelvet-light-color-theme.json"
+      },
+      {
         "label": "Leo Dew Dark",
         "uiTheme": "vs-dark",
         "path": "./themes/LeoDew-dark-color-theme.json"
@@ -52,24 +63,9 @@
         "path": "./themes/LeoDew-dark-deep-color-theme.json"
       },
       {
-        "label": "Leo Petal Dark",
-        "uiTheme": "vs-dark",
-        "path": "./themes/LeoPetal-dark-color-theme.json"
-      },
-      {
-        "label": "Leo Petal Dark Deep",
-        "uiTheme": "vs-dark",
-        "path": "./themes/LeoPetal-dark-deep-color-theme.json"
-      },
-      {
-        "label": "Leo Burrow Dark",
-        "uiTheme": "vs-dark",
-        "path": "./themes/LeoBurrow-dark-color-theme.json"
-      },
-      {
-        "label": "Leo Burrow Dark Deep",
-        "uiTheme": "vs-dark",
-        "path": "./themes/LeoBurrow-dark-deep-color-theme.json"
+        "label": "Leo Dew Light",
+        "uiTheme": "vs",
+        "path": "./themes/LeoDew-light-color-theme.json"
       },
       {
         "label": "Leo Morning Dark",
@@ -82,24 +78,9 @@
         "path": "./themes/LeoMorning-dark-deep-color-theme.json"
       },
       {
-        "label": "Leo Biscuit Dark",
-        "uiTheme": "vs-dark",
-        "path": "./themes/LeoBiscuit-dark-color-theme.json"
-      },
-      {
-        "label": "Leo Biscuit Dark Deep",
-        "uiTheme": "vs-dark",
-        "path": "./themes/LeoBiscuit-dark-deep-color-theme.json"
-      },
-      {
-        "label": "Leo Dusk Dark",
-        "uiTheme": "vs-dark",
-        "path": "./themes/LeoDusk-dark-color-theme.json"
-      },
-      {
-        "label": "Leo Dusk Dark Deep",
-        "uiTheme": "vs-dark",
-        "path": "./themes/LeoDusk-dark-deep-color-theme.json"
+        "label": "Leo Morning Light",
+        "uiTheme": "vs",
+        "path": "./themes/LeoMorning-light-color-theme.json"
       }
     ]
   },
@@ -110,5 +91,9 @@
   "repository": {
     "type": "git",
     "url": "https://github.com/pashanaumov/leo-themes"
+  },
+  "homepage": "https://github.com/pashanaumov/leo-themes#readme",
+  "bugs": {
+    "url": "https://github.com/pashanaumov/leo-themes/issues"
   }
 }

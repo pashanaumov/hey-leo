@@ -1,34 +1,48 @@
-# Leo 🐾
+# Leo 🐶
 
-> Dark pastel themes for Visual Studio Code — named after Leo the dachshund.
+> Curated pastel themes for Visual Studio Code - named after Leo the dachshund.
 
-Leo is a curated collection of **14 rich dark pastel themes** with a shared palette backbone, a softer UI hierarchy, and consistent syntax-role mapping across every flavor. Every theme comes in a standard **Dark** variant and an OLED-friendly **Dark Deep** variant.
+Leo is a focused collection of **3 pastel theme families** with a shared palette backbone, softer UI hierarchy, and consistent syntax-role mapping across every flavor. Each family ships in **Dark**, **Dark Deep**, and **Light** variants.
+
+Published on the VS Code Marketplace as **Hey Leo**.
 
 ---
 
 ## Themes
 
-| Theme | Personality | Vibe |
-|-------|-------------|------|
-| **Leo Velvet** | Pink | Velvety dachshund ears |
-| **Leo Dew** | Lilac Purple | Cool morning dewdrops |
-| **Leo Petal** | Rose Coral | Soft garden petals |
-| **Leo Burrow** | Warm Mauve | Dachshunds love to burrow |
-| **Leo Morning** | Mint Green | First walk of the day |
-| **Leo Biscuit** | Soft Gold | Treat time |
-| **Leo Dusk** | Deep Magenta | Evening walk |
-
-Each theme ships as **Dark** (standard) and **Dark Deep** (OLED/deeper canvas).
+| Theme           | Personality     | Variants                 |
+| --------------- | --------------- | ------------------------ |
+| **Leo Dew**     | Cool lilac      | Dark / Dark Deep / Light |
+| **Leo Morning** | Fresh mint      | Dark / Dark Deep / Light |
+| **Leo Velvet**  | Expressive pink | Dark / Dark Deep / Light |
 
 ---
 
-## Design Philosophy
+## Screenshots
 
-- **Shared palette backbone** — every theme uses the same surface ramp, inactive chrome rules, and active accent hierarchy
-- **Softer passive UI** — selections, tabs, panels, and inputs lean on neutral surfaces so accents stay purposeful
-- **Consistent syntax roles** — strings, callables, types, constants, and parameters keep the same job across every flavor
-- **Semantic token coverage** — modern language servers inherit the same hierarchy as TextMate scopes
-- **Dark Deep variants** — ~40% darker canvas for OLED screens or deep-focus sessions
+### Leo Dew
+
+![Leo Dew Light](screenshots/leo-dew-light.png)
+
+![Leo Dew Dark](screenshots/leo-dew-dark.png)
+
+![Leo Dew Dark Deep](screenshots/leo-dew-dark-deep.png)
+
+### Leo Morning
+
+![Leo Morning Light](screenshots/leo-morning-light.png)
+
+![Leo Morning Dark](screenshots/leo-morning-dark.png)
+
+![Leo Morning Dark Deep](screenshots/leo-morning-dark-deep.png)
+
+### Leo Velvet
+
+![Leo Velvet Light](screenshots/leo-velvet-light.png)
+
+![Leo Velvet Dark](screenshots/leo-velvet-dark.png)
+
+![Leo Velvet Dark Deep](screenshots/leo-velvet-dark-deep.png)
 
 ---
 
@@ -36,8 +50,19 @@ Each theme ships as **Dark** (standard) and **Dark Deep** (OLED/deeper canvas).
 
 1. Open VS Code
 2. Go to **Extensions** (`Shift+Cmd+X`)
-3. Search **Leo**
+3. Search **Hey Leo**
 4. Click **Install** and select your favourite variant from `Preferences > Color Theme`
+
+---
+
+## Development
+
+```sh
+npm run generate
+npm run package:check
+```
+
+Theme JSON files are generated from `scripts/generate-themes.mjs`. See `CONTRIBUTING.md` for local development and `docs/release.md` for release steps.
 
 ---
 
@@ -49,7 +74,11 @@ Each theme ships as **Dark** (standard) and **Dark Deep** (OLED/deeper canvas).
   "editor.fontFamily": "JetBrains Mono, Fira Code, Menlo, monospace",
   "editor.fontLigatures": true,
   "editor.cursorBlinking": "smooth",
-  "editor.cursorSmoothCaretAnimation": "on"
+  "editor.cursorSmoothCaretAnimation": "on",
+  "editor.fontWeight": "400",
+  "workbench.fontAliasing": "antialiased",
+  "editor.fontSize": 12.5,
+  "editor.fontVariations": true
 }
 ```
 
@@ -57,4 +86,4 @@ Each theme ships as **Dark** (standard) and **Dark Deep** (OLED/deeper canvas).
 
 ## License
 
-MIT — made with love for Leo 🐾 by [pashanaumov](https://github.com/pashanaumov)
+MIT - made with love for Leo 🐾 by [pashanaumov](https://github.com/pashanaumov)

@@ -15,7 +15,7 @@ const defaultProfileExtensionsPath = path.join(
   "Code",
   "User",
   "profiles",
-  "1484df15",
+  "597c9df",
   "extensions.json",
 );
 
@@ -72,15 +72,33 @@ async function main() {
   const vsixPath = path.join(rootDir, vsixName);
 
   await run("npm", ["run", "generate"]);
-  await run("vsce", ["package", "--out", vsixName]);
+  await run("npx", ["@vscode/vsce", "package", "--out", vsixName]);
   await run("code", ["--install-extension", vsixPath, "--force"]);
 
-  const installedExtensions = JSON.parse(await fs.readFile(globalExtensionsPath, "utf8"));
+  let installedExtensions = [];
+
+  try {
+    installedExtensions = JSON.parse(await fs.readFile(globalExtensionsPath, "utf8"));
+  } catch (error) {
+    if (error?.code !== "ENOENT") {
+      throw error;
+    }
+  }
+
   const installedEntry =
     installedExtensions.find((entry) => entry.identifier?.id === extensionId) ??
     buildFallbackEntry(extensionId, pkg.version);
 
-  const currentProfileEntries = JSON.parse(await fs.readFile(profileExtensionsPath, "utf8"));
+  let currentProfileEntries = [];
+
+  try {
+    currentProfileEntries = JSON.parse(await fs.readFile(profileExtensionsPath, "utf8"));
+  } catch (error) {
+    if (error?.code !== "ENOENT") {
+      throw error;
+    }
+  }
+
   const nextProfileEntries = [...currentProfileEntries];
   const existingIndex = nextProfileEntries.findIndex(
     (entry) => entry.identifier?.id === extensionId,

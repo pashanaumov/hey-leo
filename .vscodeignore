@@ -1,6 +1,16 @@
 .vscode/**
 .vscode-test/**
+.github/**
 .gitignore
 vsc-extension-quickstart.md
 recommended/**
 /tmp/**
+*.vsix
+.DS_Store
+**/.DS_Store
+scripts/**
+screenshot-samples/**
+themes/LeoPetal-*
+themes/LeoBurrow-*
+themes/LeoBiscuit-*
+themes/LeoDusk-*

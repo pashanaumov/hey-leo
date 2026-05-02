@@ -16,9 +16,16 @@ const THEME_DEFINITIONS = [
     label: "Leo Velvet",
     accent: "#F088C0",
     text: "#E0D8EC",
+    texts: {
+      light: "#4A3546",
+    },
     backgrounds: {
       dark: "#1C1626",
       deep: "#100D16",
+      light: "#FFF0F7",
+    },
+    accents: {
+      light: "#B83F82",
     },
     hues: {
       string: "#6CD8C8",
@@ -27,15 +34,31 @@ const THEME_DEFINITIONS = [
       constant: "#F4A080",
       enum: "#88C890",
     },
+    variantHues: {
+      light: {
+        string: "#007A73",
+        callable: "#2B6F9F",
+        type: "#8F6500",
+        constant: "#B85A35",
+        enum: "#4F873F",
+      },
+    },
   },
   {
     fileStem: "LeoDew",
     label: "Leo Dew",
     accent: "#C48EF0",
     text: "#E0DEE8",
+    texts: {
+      light: "#3D3654",
+    },
     backgrounds: {
       dark: "#1A1828",
       deep: "#0D0B14",
+      light: "#F5F1FF",
+    },
+    accents: {
+      light: "#8B4CC8",
     },
     hues: {
       string: "#7CE4D8",
@@ -44,39 +67,14 @@ const THEME_DEFINITIONS = [
       constant: "#F0A888",
       enum: "#B4D088",
     },
-  },
-  {
-    fileStem: "LeoPetal",
-    label: "Leo Petal",
-    accent: "#F07888",
-    text: "#E4DCDE",
-    backgrounds: {
-      dark: "#1C181A",
-      deep: "#100E0F",
-    },
-    hues: {
-      string: "#6CD8D0",
-      callable: "#88B4DC",
-      type: "#D4B068",
-      constant: "#F098A4",
-      enum: "#88C89A",
-    },
-  },
-  {
-    fileStem: "LeoBurrow",
-    label: "Leo Burrow",
-    accent: "#CC88B0",
-    text: "#E4DDE0",
-    backgrounds: {
-      dark: "#1A1619",
-      deep: "#0F0D0F",
-    },
-    hues: {
-      string: "#68CEC0",
-      callable: "#84A8D0",
-      type: "#D0B460",
-      constant: "#EE9878",
-      enum: "#88C090",
+    variantHues: {
+      light: {
+        string: "#007A73",
+        callable: "#286FA3",
+        type: "#9A6A00",
+        constant: "#B35435",
+        enum: "#5F7F1B",
+      },
     },
   },
   {
@@ -84,9 +82,16 @@ const THEME_DEFINITIONS = [
     label: "Leo Morning",
     accent: "#88D4A0",
     text: "#DDE8E0",
+    texts: {
+      light: "#2F4438",
+    },
     backgrounds: {
       dark: "#161C19",
       deep: "#0D100F",
+      light: "#F1FAF4",
+    },
+    accents: {
+      light: "#2F8F57",
     },
     hues: {
       string: "#72D4C4",
@@ -95,42 +100,30 @@ const THEME_DEFINITIONS = [
       constant: "#E898A8",
       enum: "#A0D892",
     },
-  },
-  {
-    fileStem: "LeoBiscuit",
-    label: "Leo Biscuit",
-    accent: "#D4B46C",
-    text: "#E8E4D8",
-    backgrounds: {
-      dark: "#1A1918",
-      deep: "#0F0F0E",
-    },
-    hues: {
-      string: "#72D0C0",
-      callable: "#84B4DC",
-      type: "#B898D4",
-      constant: "#E890B8",
-      enum: "#9CC888",
-    },
-  },
-  {
-    fileStem: "LeoDusk",
-    label: "Leo Dusk",
-    accent: "#D870B4",
-    text: "#E0D8E8",
-    backgrounds: {
-      dark: "#1A1724",
-      deep: "#0F0D15",
-    },
-    hues: {
-      string: "#6CD4C8",
-      callable: "#7CB4DC",
-      type: "#D4B060",
-      constant: "#F09070",
-      enum: "#A8D880",
+    variantHues: {
+      light: {
+        string: "#007A68",
+        callable: "#286D9F",
+        type: "#8A6500",
+        constant: "#B35672",
+        enum: "#438A32",
+      },
     },
   },
 ];
+
+function resolveDefinition(definition, variant) {
+  return {
+    ...definition,
+    accent: definition.accents?.[variant] ?? definition.accent,
+    error: variant === "light" ? "#C93D45" : SHARED.error,
+    hues: {
+      ...definition.hues,
+      ...(definition.variantHues?.[variant] ?? {}),
+    },
+    text: definition.texts?.[variant] ?? definition.text,
+  };
+}
 
 function clampChannel(value) {
   return Math.max(0, Math.min(255, Math.round(value)));
@@ -217,6 +210,7 @@ function buildPalette(definition, variant) {
 
 function buildColors(definition, variant) {
   const palette = buildPalette(definition, variant);
+  const error = definition.error ?? SHARED.error;
   const { hues } = definition;
 
   return {
@@ -243,14 +237,14 @@ function buildColors(definition, variant) {
     "editorBracketHighlight.foreground4": hues.constant,
     "editorBracketHighlight.foreground5": hues.callable,
     "editorBracketHighlight.foreground6": hues.enum,
-    "editorError.foreground": SHARED.error,
+    "editorError.foreground": error,
     "editorWarning.foreground": hues.constant,
     "editorInfo.foreground": hues.callable,
     "editorGutter.modifiedBackground": hues.callable,
     "editorGutter.addedBackground": hues.enum,
-    "editorGutter.deletedBackground": SHARED.error,
+    "editorGutter.deletedBackground": error,
     "editorOverviewRuler.border": palette.surface1,
-    "editorOverviewRuler.errorForeground": SHARED.error,
+    "editorOverviewRuler.errorForeground": error,
     "editorOverviewRuler.warningForeground": hues.constant,
     "editorOverviewRuler.infoForeground": hues.callable,
     "sideBar.background": palette.mantle,
@@ -294,7 +288,7 @@ function buildColors(definition, variant) {
     "terminal.background": palette.base,
     "terminal.foreground": palette.text,
     "terminal.ansiBlack": palette.surface0,
-    "terminal.ansiRed": SHARED.error,
+    "terminal.ansiRed": error,
     "terminal.ansiGreen": hues.enum,
     "terminal.ansiYellow": hues.type,
     "terminal.ansiBlue": hues.callable,
@@ -302,7 +296,7 @@ function buildColors(definition, variant) {
     "terminal.ansiCyan": hues.string,
     "terminal.ansiWhite": palette.overlay2,
     "terminal.ansiBrightBlack": palette.overlay0,
-    "terminal.ansiBrightRed": shade(SHARED.error, 0.08),
+    "terminal.ansiBrightRed": shade(error, 0.08),
     "terminal.ansiBrightGreen": shade(hues.enum, 0.08),
     "terminal.ansiBrightYellow": shade(hues.type, 0.08),
     "terminal.ansiBrightBlue": shade(hues.callable, 0.08),
@@ -348,12 +342,12 @@ function buildColors(definition, variant) {
     "peekViewEditor.matchHighlightBackground": opacity(hues.callable, 0.3),
     "peekViewResult.matchHighlightBackground": opacity(hues.callable, 0.3),
     "gitDecoration.modifiedResourceForeground": hues.callable,
-    "gitDecoration.deletedResourceForeground": SHARED.error,
+    "gitDecoration.deletedResourceForeground": error,
     "gitDecoration.untrackedResourceForeground": hues.enum,
     "gitDecoration.ignoredResourceForeground": palette.overlay0,
     "gitDecoration.conflictingResourceForeground": definition.accent,
     "diffEditor.insertedTextBackground": opacity(hues.enum, 0.18),
-    "diffEditor.removedTextBackground": opacity(SHARED.error, 0.18),
+    "diffEditor.removedTextBackground": opacity(error, 0.18),
     "editorWidget.background": palette.mantle,
     "editorWidget.border": palette.surface2,
     "editorSuggestWidget.background": palette.mantle,
@@ -368,6 +362,7 @@ function buildColors(definition, variant) {
 
 function buildSemanticTokens(definition, variant) {
   const palette = buildPalette(definition, variant);
+  const error = definition.error ?? SHARED.error;
   const { hues } = definition;
 
   return {
@@ -390,12 +385,13 @@ function buildSemanticTokens(definition, variant) {
     typeParameter: { foreground: palette.parameter },
     decorator: { foreground: hues.constant, fontStyle: "italic" },
     macro: { foreground: hues.callable },
-    selfKeyword: { foreground: SHARED.error },
+    selfKeyword: { foreground: error },
   };
 }
 
 function buildTokenColors(definition, variant) {
   const palette = buildPalette(definition, variant);
+  const error = definition.error ?? SHARED.error;
   const { hues } = definition;
 
   return [
@@ -549,7 +545,7 @@ function buildTokenColors(definition, variant) {
     {
       scope: ["support.function.builtin", "variable.language.this"],
       settings: {
-        foreground: SHARED.error,
+        foreground: error,
       },
     },
     {
@@ -586,7 +582,7 @@ function buildTokenColors(definition, variant) {
     {
       scope: "markup.deleted",
       settings: {
-        foreground: SHARED.error,
+        foreground: error,
       },
     },
     {
@@ -610,7 +606,7 @@ function buildTokenColors(definition, variant) {
     {
       scope: "invalid",
       settings: {
-        foreground: SHARED.error,
+        foreground: error,
         fontStyle: "underline",
       },
     },
@@ -618,16 +614,17 @@ function buildTokenColors(definition, variant) {
 }
 
 function buildTheme(definition, variant) {
-  const variantLabel = variant === "dark" ? "Dark" : "Dark Deep";
+  const themeDefinition = resolveDefinition(definition, variant);
+  const variantLabel = variant === "dark" ? "Dark" : variant === "deep" ? "Dark Deep" : "Light";
 
   return {
     $schema: "vscode://schemas/color-theme",
-    name: `${definition.label} ${variantLabel}`,
-    type: "vs-dark",
-    colors: buildColors(definition, variant),
+    name: `${themeDefinition.label} ${variantLabel}`,
+    type: variant === "light" ? "light" : "vs-dark",
+    colors: buildColors(themeDefinition, variant),
     semanticHighlighting: true,
-    semanticTokenColors: buildSemanticTokens(definition, variant),
-    tokenColors: buildTokenColors(definition, variant),
+    semanticTokenColors: buildSemanticTokens(themeDefinition, variant),
+    tokenColors: buildTokenColors(themeDefinition, variant),
   };
 }
 
@@ -636,7 +633,9 @@ async function writeTheme(definition, variant) {
   const fileName =
     variant === "dark"
       ? `${definition.fileStem}-dark-color-theme.json`
-      : `${definition.fileStem}-dark-deep-color-theme.json`;
+      : variant === "deep"
+        ? `${definition.fileStem}-dark-deep-color-theme.json`
+        : `${definition.fileStem}-light-color-theme.json`;
 
   await fs.writeFile(
     path.join(themesDir, fileName),
@@ -650,6 +649,7 @@ async function main() {
     THEME_DEFINITIONS.flatMap((definition) => [
       writeTheme(definition, "dark"),
       writeTheme(definition, "deep"),
+      writeTheme(definition, "light"),
     ]),
   );
 }
