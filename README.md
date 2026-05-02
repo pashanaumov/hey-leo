@@ -4,7 +4,7 @@
 
 Leo is a focused collection of **3 pastel theme families** with a shared palette backbone, softer UI hierarchy, and consistent syntax-role mapping across every flavor. Each family ships in **Dark**, **Dark Deep**, and **Light** variants.
 
-Published on the VS Code Marketplace as **Hey Leo**.
+Published on the VS Code Marketplace as [Hey Leo](https://marketplace.visualstudio.com/items?itemName=pashanaumov.leo-themes).
 
 ---
 
