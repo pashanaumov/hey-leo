@@ -1074,17 +1074,32 @@ function buildSemanticTokens(definition, variant) {
     keyword: { foreground: definition.accent },
     number: { foreground: hues.constant },
     boolean: { foreground: hues.constant },
+    string: { foreground: hues.string },
+    regexp: { foreground: palette.regex },
+    operator: { foreground: hues.string },
     parameter: { foreground: palette.parameter, fontStyle: "italic" },
+    variable: { foreground: palette.text },
+    "variable.declaration": { foreground: palette.text },
     property: { foreground: palette.text },
-    "variable.defaultLibrary": { foreground: palette.parameter },
+    "property.declaration": { foreground: hues.constant, fontStyle: "italic" },
+    "property.definition": { foreground: hues.constant, fontStyle: "italic" },
+    "variable.defaultLibrary": { foreground: hues.callable },
     "variable.readonly": { foreground: palette.text },
+    "variable.readonly:javascript": { foreground: palette.text },
+    "variable.readonly:typescript": { foreground: palette.text },
+    "variable.readonly:javascriptreact": { foreground: palette.text },
+    "variable.readonly:typescriptreact": { foreground: palette.text },
     "property.readonly": { foreground: palette.text },
+    "property.readonly:javascript": { foreground: palette.text },
+    "property.readonly:typescript": { foreground: palette.text },
+    "property.readonly:javascriptreact": { foreground: palette.text },
+    "property.readonly:typescriptreact": { foreground: palette.text },
     class: { foreground: hues.type, fontStyle: "italic" },
     type: { foreground: hues.type, fontStyle: "italic" },
     interface: { foreground: hues.type, fontStyle: "italic" },
     enum: { foreground: hues.type, fontStyle: "italic" },
     namespace: { foreground: hues.type },
-    typeParameter: { foreground: palette.parameter },
+    typeParameter: { foreground: hues.type },
     decorator: { foreground: hues.constant, fontStyle: "italic" },
     macro: { foreground: hues.callable },
     selfKeyword: { foreground: error },
@@ -1125,9 +1140,40 @@ function buildTokenColors(definition, variant) {
       },
     },
     {
+      scope: [
+        "storage.type.type.ts",
+        "storage.type.interface.ts",
+        "storage.type.enum.ts",
+        "storage.type.class.js",
+        "storage.type.class.ts",
+        "storage.modifier.implements",
+        "keyword.operator.expression.keyof.ts",
+        "keyword.operator.expression.infer.ts",
+        "keyword.operator.expression.is",
+      ],
+      settings: {
+        foreground: hues.type,
+        fontStyle: "italic",
+      },
+    },
+    {
       scope: ["keyword.control.import", "keyword.control.export", "keyword.control.from"],
       settings: {
         foreground: palette.accentMuted,
+        fontStyle: "",
+      },
+    },
+    {
+      scope: [
+        "meta.import keyword.control",
+        "meta.export keyword.control",
+        "keyword.control.import.ts",
+        "keyword.control.export.ts",
+        "keyword.control.from.ts",
+        "keyword.control.as.ts",
+      ],
+      settings: {
+        foreground: definition.accent,
         fontStyle: "",
       },
     },
@@ -1150,7 +1196,34 @@ function buildTokenColors(definition, variant) {
       },
     },
     {
+      scope: [
+        "constant.language.null.js",
+        "constant.language.null.ts",
+        "constant.language.undefined.js",
+        "constant.language.undefined.ts",
+        "support.constant.node",
+        "support.type.object.module.js",
+      ],
+      settings: {
+        foreground: definition.accent,
+      },
+    },
+    {
       scope: "variable.parameter",
+      settings: {
+        foreground: palette.parameter,
+        fontStyle: "italic",
+      },
+    },
+    {
+      scope: [
+        "meta.function.parameters",
+        "variable.parameter.ts",
+        "variable.parameter.js",
+        "variable.parameter.generic",
+        "variable.other.jsdoc",
+        "comment.block.documentation variable.other",
+      ],
       settings: {
         foreground: palette.parameter,
         fontStyle: "italic",
@@ -1163,6 +1236,33 @@ function buildTokenColors(definition, variant) {
       },
     },
     {
+      scope: [
+        "meta.property.object",
+        "meta.object-literal.key",
+        "meta.object-literal.key string",
+        "variable.other.object.property",
+        "support.type.property-name.json",
+        "punctuation.support.type.property-name.json",
+        "support.type.property-name.yaml",
+        "punctuation.support.type.property-name.yaml",
+        "support.type.property-name.toml",
+        "punctuation.support.type.property-name.toml",
+      ],
+      settings: {
+        foreground: hues.callable,
+      },
+    },
+    {
+      scope: [
+        "variable.other.constant.js",
+        "variable.other.constant.ts",
+        "entity.name.constant",
+      ],
+      settings: {
+        foreground: hues.constant,
+      },
+    },
+    {
       scope: ["entity.name.function", "support.function", "meta.function-call", "meta.function-call.method"],
       settings: {
         foreground: hues.callable,
@@ -1170,7 +1270,39 @@ function buildTokenColors(definition, variant) {
       },
     },
     {
+      scope: [
+        "variable.function",
+        "support.function.misc",
+        "meta.method-call entity.name.function",
+        "meta.function-call.constructor",
+      ],
+      settings: {
+        foreground: hues.callable,
+        fontStyle: "italic",
+      },
+    },
+    {
+      scope: ["keyword.declaration.function.arrow.js", "storage.type.function.arrow.ts"],
+      settings: {
+        foreground: hues.string,
+      },
+    },
+    {
       scope: ["entity.name.type", "support.class", "entity.name.class", "entity.name.namespace"],
+      settings: {
+        foreground: hues.type,
+        fontStyle: "italic",
+      },
+    },
+    {
+      scope: [
+        "entity.other.inherited-class",
+        "entity.name.struct",
+        "support.class.component",
+        "support.class.component.jsx",
+        "support.class.component.tsx",
+        "support.class.component.vue",
+      ],
       settings: {
         foreground: hues.type,
         fontStyle: "italic",
@@ -1196,7 +1328,29 @@ function buildTokenColors(definition, variant) {
       },
     },
     {
+      scope: ["constant.language.boolean", "constant.language.true", "constant.language.false"],
+      settings: {
+        foreground: hues.constant,
+      },
+    },
+    {
       scope: ["keyword.operator", "operator", "punctuation.accessor"],
+      settings: {
+        foreground: hues.string,
+      },
+    },
+    {
+      scope: [
+        "keyword.operator.expression.in.js",
+        "keyword.operator.expression.in.ts",
+        "keyword.operator.expression.instanceof.js",
+        "keyword.operator.expression.instanceof.ts",
+        "keyword.operator.expression.of.js",
+        "keyword.operator.expression.of.ts",
+        "keyword.operator.expression.typeof.ts",
+        "punctuation.definition.generic",
+        "punctuation.separator.key-value",
+      ],
       settings: {
         foreground: hues.string,
       },
@@ -1216,6 +1370,12 @@ function buildTokenColors(definition, variant) {
       ],
       settings: {
         foreground: palette.overlay2,
+      },
+    },
+    {
+      scope: ["punctuation.definition.typeparameters", "punctuation.definition.template-expression"],
+      settings: {
+        foreground: hues.callable,
       },
     },
     {
@@ -1239,15 +1399,70 @@ function buildTokenColors(definition, variant) {
       },
     },
     {
+      scope: [
+        "meta.annotation variable.function",
+        "meta.annotation variable.annotation.function",
+        "meta.annotation punctuation.definition.annotation",
+        "punctuation.definition.annotation",
+        "storage.type.annotation",
+      ],
+      settings: {
+        foreground: hues.constant,
+        fontStyle: "italic",
+      },
+    },
+    {
+      scope: "punctuation.decorator.ts",
+      settings: {
+        foreground: hues.callable,
+        fontStyle: "italic",
+      },
+    },
+    {
       scope: ["support.type", "meta.type", "meta.type-alias"],
       settings: {
         foreground: hues.type,
       },
     },
     {
+      scope: ["support.type.builtin.ts", "support.type.primitive"],
+      settings: {
+        foreground: definition.accent,
+      },
+    },
+    {
       scope: ["support.function.builtin", "variable.language.this"],
       settings: {
         foreground: error,
+      },
+    },
+    {
+      scope: [
+        "keyword.control.anchor.regexp",
+        "punctuation.definition.group.no-capture.regexp",
+        "meta.assertion.look-ahead.regexp",
+        "meta.assertion.negative-look-ahead.regexp",
+      ],
+      settings: {
+        foreground: definition.accent,
+      },
+    },
+    {
+      scope: ["punctuation.definition.group.regexp", "keyword.other.back-reference.regexp"],
+      settings: {
+        foreground: hues.enum,
+      },
+    },
+    {
+      scope: ["punctuation.definition.character-class.regexp", "constant.other.character-class.regexp"],
+      settings: {
+        foreground: hues.type,
+      },
+    },
+    {
+      scope: ["keyword.operator.quantifier.regexp", "constant.character.numeric.regexp"],
+      settings: {
+        foreground: hues.constant,
       },
     },
     {
